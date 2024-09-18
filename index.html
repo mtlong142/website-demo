@@ -14,7 +14,17 @@
 <!-- 		<script src="https://sccitsmdev.service-now.com/scripts/now-requestor-chat-popover-app/now-requestor-chat-popover-app.min.js?sysparm_substitute=false">const chat = new ServiceNowChat({instance: 'https://sccitsmdev.service-now.com'});</script> -->
 <!-- 		<script></script> -->
 		<script type="module">import ServiceNowChat from "https://sccitsmdev.service-now.com/uxasset/externals/now-requestor-chat-popover-app/index.jsdbx?sysparm_substitute=false";var chat = new ServiceNowChat({ instance: "https://sccitsmdev.service-now.com/", });</script>
-			
+		<script>
+    window.addEventListener("message", function(e) {
+       // redirect to SSO login if the web client logs in but is logged in as a guest user(unauthenticated)
+      if(e.data.type==="SESSION_CREATED" && e.data.authenticated === false)
+        window.location.href = "https://sccitsmdev.service-now.com/sn_va_web_client_login.do?sysparm_redirect_uri=<’ + encodeURIComponent(https://mtlong142.github.io/website-demo/);
+      
+      // redirect to SSO login if the ServiceNow platform logs out from underneath the web client
+      if(e.data.type==="SESSION_LOGGED_OUT")
+        window.location.href = "https://sccitsmdev.service-now.com/"https://sccitsmdev.service-now.com/sn_va_web_client_login.do?sysparm_redirect_uri=’ + encodeURIComponent(https://mtlong142.github.io/website-demo/);
+    });
+  </script>
 		
 	</head>
 	<body class="is-preload">
